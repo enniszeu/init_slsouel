@@ -1,0 +1,79 @@
+
+.out_soure{
+
+	.img_out{
+		background-image: url(".././img/out.png");
+		background-size: cover;
+		width: 100%;
+		height: 450px;
+		padding: 137px 400px;
+    	text-align: center;
+		&:after{
+		   @extend %after_
+		}
+		h3{
+			color: $white;
+			font-weight: 600;
+			font-size: 34px;
+		}
+		hr{
+			width: 10%;
+			background: $hover_;
+			border-top: 1px solid $hover_;;
+			height: 1px;
+		}
+		p{
+			color: $white;
+			font-weight: 300;
+			font-size: 14px;
+			transition: 0.5s;
+		}
+		a{
+			color: $white;
+			font-weight: 900;
+			border-style: none none solid none;
+			letter-spacing: 1px;
+			text-decoration: none;
+			font-size: 11px;
+		}
+	}
+}
+
+
+
+@include responsive_sm{
+
+ }
+ 
+@include responsive_md{
+ 
+.out_soure{
+	.img_out{
+		padding: 114px 34px !important;
+		p{
+
+		}
+	}
+}
+
+
+
+}
+ 
+@include responsive_lg{
+
+}
+
+ 
+@include responsive_xl{
+	
+.out_soure{
+	.img_out{
+		padding: 137px 200px;
+		p{
+
+		}
+	}
+}
+
+}

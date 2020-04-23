@@ -1,0 +1,269 @@
+
+
+
+
+
+.card{
+	margin: 18px;
+	background: $white;
+	text-align: center;
+	.img_bia{
+		@extend %bg_img;
+		height: 150px;
+		background-image: url(".././image/bia.jpg");
+		padding-top: 120px;
+		padding-left: 90px;
+
+	}
+	.card-body{
+		padding: 36px;
+		
+	}
+}
+.box_upload {
+	padding-top: 20px;
+	img{
+		width: 100%;
+		height: 350px;
+	}
+}
+form{
+	background: $white;
+    margin: 20px;
+    padding: 19px;
+    border-radius: 5px;
+	.form-group{
+		.date{
+			background: $white;
+			border: 1px solid #fff;
+		}
+		.species{
+			width: 60%;
+		}
+		.price{
+			width: 40%;
+			float: left;
+		}
+		b{
+			padding: 7px;
+		}
+		.ERRimage{
+			border:2px solid red;
+			// &::after{
+			// 	content:"moi them anh";
+			// 	position: absolute;
+			// 	background: red;
+			// 	width: 169px;
+			//     height: 29px;
+			//     border-radius: 5px;
+			//     top: 347px;
+			//     left: 330px;
+			//     padding: 3px;
+				
+			// }
+			// &::before{
+			// 	content:"";
+			// 	position: absolute;
+			// 	background: red;
+			// 	width: 25px;
+			//     height: 25px;
+			//     transform: rotate(50deg);
+			//     top: 355px;
+			//     left: 338px;
+
+			// }
+		}
+		.ERRproducts{
+			@extend .ERRimage
+		}
+		.ERRprice{
+			@extend .ERRimage
+		}
+		.ERRspecies{
+			@extend .ERRimage
+		}
+		.ERRdescribe{
+			@extend .ERRimage
+		}
+
+		input{
+			background: $table_color;
+		}
+		textarea{
+
+		}
+
+	}
+
+}
+.upload_button{
+	margin-left: 43%;
+	background: $blue;
+	width: 131px;
+    border-radius: 81px;
+}
+.proces{
+	height: 719px;
+    width: 100%;
+    position: fixed;
+    background: #12141552;
+}
+#alertCustom{
+	opacity: 0.2;
+	position: fixed;
+	width: 100%;
+}	
+
+.form-check-input{
+  width: 50px;
+  border:none;
+  border-radius: 20px;
+  background-color: #475b61!important;
+}
+
+
+@include responsive_sm{
+  .upload_button {
+    margin-left: 25%;
+  }
+}
+ 
+@include responsive_md{
+ 
+}
+ 
+@include responsive_lg{
+
+}
+
+ 
+@include responsive_xl{
+
+
+}
+
+
+
+
+/*proces*/
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 3em;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+.loader,
+.loader:before,
+.loader:after {
+    animation: 1s infinite ease-in-out;
+}
+.loader:before,
+.loader:after {
+    width: 100%; 
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $hover_;
+}
+
+.loader-black { background-color: #333; }
+
+.loader-1 { animation-name: loader1; top: 40%;
+    left: 45%;
+    position: absolute; }
+@keyframes loader1 {
+    from { transform: scale(0); opacity: 1; }
+    to   { transform: scale(1); opacity: 0; }
+}
+
+
+
+
+
+
+@-webkit-keyframes rotate-forever {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotate-forever {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate-forever {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.loading-spinner {
+  -webkit-animation-duration: 0.75s;
+  -moz-animation-duration: 0.75s;
+  animation-duration: 0.75s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: rotate-forever;
+  -moz-animation-name: rotate-forever;
+  animation-name: rotate-forever;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  animation-timing-function: linear;
+  height: 30px;
+  width: 30px;
+  border: 8px solid #0e0e0eb5;
+  border-right-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+
+.loading-spinner {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 63%;
+  margin: -15px 0 -15px;
+}
+
+/**/

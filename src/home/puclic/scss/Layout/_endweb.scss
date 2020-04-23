@@ -1,0 +1,200 @@
+
+
+#display_yi{
+	display: none;
+}
+#display_man{
+	display: block;
+}
+
+
+.hover_end{
+	margin: 15px 0px;
+}
+.hover_end:after{
+	@extend %after_end;
+}
+
+.hover_end2:hover > .hover_end:after{
+	width: 80%;
+}
+
+.hover_send:hover > .col-xs-12 .send_mail:before{
+	width: 35%;
+}
+
+
+.intagram{
+	padding: 119px 134px;
+	transition: 0.5s;
+	
+	h3{
+		font-weight: 900;
+		font-size: 21px;
+		letter-spacing: 1px;
+	}
+	span{
+		color: $hover_;
+		font-weight: 300;
+	}
+	p{
+		font-weight: 300;
+	}
+}
+.intagram_conten{
+	padding: 166px 134px;
+	transition: 0.5s;
+	margin: 15px 0px;
+}
+
+
+
+
+.send_mail{
+	text-align: center;
+	padding: 45px;
+	&:before{
+		@extend %after_end;
+	}
+	h3{
+		font-weight: 600;
+		font-size: 21px;
+	}
+	hr{
+		border-top: 1px solid $hover_;
+		width: 10%;
+	}
+	input{
+		width: 30%;
+    	height: 46px;
+    	border: 1px solid #dadada;
+    	background-color: #dadada;
+    	padding: 15px;
+    	font-weight: 600;
+    	text-transform: uppercase;
+    	font-size: 12px;
+
+	}
+	button{
+		width: 15%;
+    	height: 46px;
+    	color: $white;
+    	border: 1px solid #353535;
+    	background-color: #353535;
+    	font-size: 12px;
+    	font-weight: 600;
+    	transition: .3s ease-in-out;
+    	&:hover{
+    		border: 1px solid $hover_;
+    		background-color: $hover_;
+    	}
+
+	}
+}
+
+.footer{
+	color: #fff;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: #3D3D3D;
+    .support{
+    	ul{
+    		p{
+    			font-weight: 600;
+    			margin: 0;
+    		}
+    		hr{
+    			width: 10%;
+    			height: 1px;
+    			background: $hover_;
+    			border-top: 0px solid $hover_;
+    			margin-top: 0px; 
+    			margin-bottom: 0px;
+    			float: left;
+    		}
+    		li{
+    			list-style: none;
+    			font-size: 13px;
+			    letter-spacing: 1px;
+			    margin-top: 12px;
+			    color: #9a9a8e;
+			    
+			    a{
+			    	color: #9a9a8e;
+			    	font-weight: 600;
+			    	font-size: 10px;
+			    	text-decoration: none;
+			    	transition: .3s ease-in-out;
+			    	&:hover{
+				    	color: $hover_;
+				    }
+			    }
+    		}
+    	}
+    }
+}
+
+.love_web{
+	width: 100%;
+	height: 50px;
+	background: #353535;
+	padding: 0px 84px;
+	p{
+		color: $hover_;
+	    text-transform: uppercase;
+	    line-height: 50px;
+	    font-size: 10px;
+	    font-weight: 600;
+	    letter-spacing: 1px;
+	    margin: 0 0 0;
+	}
+}
+
+
+@include responsive_sm{
+	
+ }
+ 
+@include responsive_md{
+	.intagram_conten {
+    	padding: 0px 71px !important;
+    	text-align: center;
+	}
+	.intagram {
+    	padding: 37px 18px !important;
+    	text-align: center;
+	}
+	.hover_end:after{
+		top: 140%;
+	}
+	.send_mail{
+		input{
+			width: 100%;
+		}
+		button{
+			width: 100%;
+			margin-top: 20px;
+		}
+	}
+	.love_web{
+		padding: 0px 45px;
+		p{
+			font-size: 7px;
+		}
+	}
+}
+ 
+@include responsive_lg{
+	.intagram{
+		padding: 119px 76px;
+	}
+	.intagram_conten{
+		padding: 166px 76px;
+	}
+}
+
+ 
+@include responsive_xl{
+
+
+}

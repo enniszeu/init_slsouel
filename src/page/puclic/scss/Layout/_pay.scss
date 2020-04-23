@@ -1,0 +1,76 @@
+
+
+
+.title_pay{
+	h3{
+		text-align: center;
+		font-size: 18px;
+		font-weight: 900;
+	}
+	hr{
+		width: 10%;
+		border-top: 1px solid $hover_;
+	}
+}
+.wapper_form{
+	padding: 70px;
+	label{
+		font-size: 12px !important;
+	}
+	.input{
+		padding: 0 10px;
+	    margin-bottom: 25px;
+	    color: #353535;
+	    height: 55px;
+	    line-height: 55px;
+	    width: 100%;
+	    background-color: #f5f5f5 !important;
+	    border: none;
+	    box-shadow: none;
+	    text-shadow: none;
+	}
+	textarea{
+		padding: 0 10px;
+	    margin: 25px 0;
+	    color: #353535;
+	    line-height: 55px;
+	    width: 100%;
+	    background-color: #f5f5f5 !important;
+	    border: none;
+	    box-shadow: none;
+	    text-shadow: none;
+	}
+}
+.row{
+	.tua{
+		padding: 0 30%;
+	}
+}
+
+
+
+
+@include responsive_sm{
+
+}
+ 
+@include responsive_md{
+ 	.wapper_form{
+		padding: 0px;
+	}
+	.row{
+		.tua{
+			padding: 20px;
+		}
+	}
+}
+ 
+@include responsive_lg{
+
+}
+
+ 
+@include responsive_xl{
+
+
+}
