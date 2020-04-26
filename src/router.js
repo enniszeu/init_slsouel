@@ -2,6 +2,8 @@ import React from 'react';
 import CreatePage from './page/pageCreate/CreatePage';
 import Manager from './page/pageManager/ManagerPage';
 import Dashboard from './page/pageDashboard/DashboardPage';
+import CreateBlog from './page/pageCreateBlog/CreateBlogPage';
+import AddChiTiet from './page/pageAddChiTiet/AddChiTietPage';
 import Cart from './page/pageCart/CartPage';
 import Pay from './page/pageCart/PayPage';
 import PageHome from './home/PageHome';
@@ -31,6 +33,16 @@ const routes = [
 		path:"/manager",
 		exact:true,
 		main: () => <Manager />
+	},
+	{
+		path:"/manager/chitiet",
+		exact:true,
+		main: () => <AddChiTiet />
+	},
+	{
+		path:"/blog",
+		exact:true,
+		main: () => <CreateBlog />
 	},
 	{
 		path:"/man",

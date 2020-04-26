@@ -4,9 +4,10 @@ import CloseIcon from '@material-ui/icons/Close';
 import  { Redirect } from 'react-router-dom';
 import NavMeauBar from '.././pageManager/const_childer/nav_meau';
 import '.././puclic/scss/style.css';   
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'
 
-
-class DashboarPage extends React.Component{
+class Editor extends React.Component{
     constructor(props){
             super(props);
 
@@ -14,14 +15,20 @@ class DashboarPage extends React.Component{
                 loader:"",
                 heyConten:"",
                 showMeau:"",
-                active:true
+                active:false,
+                editorHtml: '',
+                theme: 'snow'
             }
-
+            this.handleChange = this.handleChange.bind(this)
 
         }
 
+      handleChange (html) {
+        this.setState({ editorHtml: html });
+        console.log(html)
         
-
+      }
+      
 
     showMeau = () =>{
         this.setState({
@@ -33,7 +40,7 @@ class DashboarPage extends React.Component{
         this.setState({
             showMeau:"",
             heyConten:""
-        }) 
+        })
     }
 
 
@@ -63,7 +70,17 @@ class DashboarPage extends React.Component{
                                 <div className={`conten ${heyConten}`}>
                                         { heyConten === "heyConten" ? <div className="meau_mobi" onClick={this.closeMeau}> <CloseIcon /> </div> : <div className="meau_mobi" onClick={this.showMeau}> <MenuIcon /> </div> }
                                     <h3>Dashboard</h3>
-                                          
+                                        <div style={{background:"#fff"}}>
+                                            <ReactQuill 
+                                              theme={this.state.theme}
+                                              onChange={this.handleChange}
+                                              value={this.state.editorHtml}
+                                              modules={Editor.modules}
+                                              formats={Editor.formats}
+                                              bounds={'.app'}
+                                              placeholder={this.props.placeholder}
+                                             />
+                                           </div>
                                 </div>
                                 </div>
                             </div>
@@ -74,7 +91,39 @@ class DashboarPage extends React.Component{
             )
     }
         
+}
 
-    }
 
-export default DashboarPage;
+Editor.modules = {
+  toolbar: [
+    [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
+    [{size: []}],
+    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+    [{'list': 'ordered'}, {'list': 'bullet'}, 
+     {'indent': '-1'}, {'indent': '+1'}],
+    ['link', 'image', 'video'],
+    ['clean']
+  ],
+  clipboard: {
+    // toggle to add extra line breaks when pasting HTML:
+    matchVisual: false,
+  }
+}
+/* 
+ * Quill editor formats
+ * See https://quilljs.com/docs/formats/
+ */
+Editor.formats = [
+  'header', 'font', 'size',
+  'bold', 'italic', 'underline', 'strike', 'blockquote',
+  'list', 'bullet', 'indent',
+  'link', 'image', 'video'
+]
+
+/* 
+ * PropType validation
+ */
+
+export default Editor;
+
+

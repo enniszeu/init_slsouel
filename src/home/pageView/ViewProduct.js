@@ -37,6 +37,8 @@ class ViewProduct extends React.Component{
                 op:"",
                 redirct:0,
                 errAdd:"",
+                productsPai:[],
+                setImageName:""
                
             }
         }
@@ -47,13 +49,20 @@ class ViewProduct extends React.Component{
             var {match} = this.props;
             var {qty} = this.state
 
+            callApi('manager', 'GET', null).then(res =>{
+                this.setState({
+                    productsPai : res.data
+                })
+            })
+
             if(match){
                 var id = match.params.id;
                 callApi(`product/${id}`, 'GET', null).then(res =>{
                 	this.setState({
                         redirct : res.status,
 						products : res.data,
-                        setImageMain : res.data.imgeFile
+                        setImageMain : res.data.imgeFile,
+                        setImageName : res.data.products
 					})
                   
                 })
@@ -204,20 +213,11 @@ class ViewProduct extends React.Component{
     setImage1=(p)=>{
         this.setState({setImageMain: p})
     }
-    setImage2=(p)=>{
-        this.setState({setImageMain: p})
-    }
-    setImage3=(p)=>{
-        this.setState({setImageMain: p})
-    }
-    setImage4=(p)=>{
-        this.setState({setImageMain: p})
-    }
-
     
   
+
 	render(){
-		var {boderColor, setImageMain, loader, products, cartId, addQ, showCart, errQty, fixedQty, op, redirct, errAdd} = this.state;
+		var {setImageName, productsPai, boderColor, setImageMain, loader, products, cartId, addQ, showCart, errQty, fixedQty, op, redirct, errAdd} = this.state;
         setInterval(() => {
             this.setState({ loader: "loaders" });
         }, 500);
@@ -234,6 +234,20 @@ class ViewProduct extends React.Component{
                 </tr>
 
                 </tbody>
+            )
+        })
+
+        var showCompleImg = productsPai.map((products, index)=>{
+            return ( 
+                <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 custom_col" id={ products.products === setImageName ? "" : "display_not"}>
+                    {products.imgeFile1 === "" ? 
+                        <div className="notImg"></div> :
+                        <div className="img_views" onClick={()=> this.setImage1(products.imgeFile1)}>
+                            <img src={`https://glaze-playful-traffic.glitch.me/${products.imgeFile1}`} id={setImageMain === products.imgeFile1 ? "active" : ""}/>
+                        </div>
+                    }
+                </div>
+
             )
         })
         
@@ -297,48 +311,17 @@ class ViewProduct extends React.Component{
                                     <div className="view-wapper">
                                         {redirct === 200 ? 
                                             <div className="img_view">
-                                                <img src={setImageMain} />
+                                                <img src={`https://glaze-playful-traffic.glitch.me/${setImageMain}`} />
                                             </div>:
                                             <div className="img_view" style={{height:"430px", paddingTop:"50%"}}>
                                               <div className="loading" style={{marginTop:"0"}}>Loading&#8230;</div>
                                             </div>
                                         }
                                         <div className="row custom_row">
-                                            <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 custom_col">
-                                                {products.image1 === "" ? 
-                                                    <div className="notImg"></div> :
-                                                    <div className="img_views" onClick={()=> this.setImage1(products.image1)}>
-                                                        <img src={products.image1} id={setImageMain === products.image1 ? "active" : ""}/>
-                                                    </div>
-                                                }
-                                            </div>
-                                            <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 custom_col">
-                                                {products.image2 === "" ? 
-                                                    <div className="notImg"></div> :
-                                                    <div className="img_views" onClick={()=> this.setImage2(products.image2)}>
-                                                        <img src={products.image2} id={setImageMain === products.image2 ? "active" : ""}/>
-                                                    </div>
-                                                }
-                                            </div>
-                                            <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 custom_col">
-                                                {products.image3 === "" ? 
-                                                    <div className="notImg"></div> :
-                                                    <div className="img_views" onClick={()=> this.setImage3(products.image3)}>
-                                                        <img src={products.image3} id={setImageMain === products.image3 ? "active" : ""}/>
-                                                    </div>
-                                                }
-                                            </div>
-                                            <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 custom_col">
-                                                {products.image4 === "" ? 
-                                                    <div className="notImg"></div> :
-                                                    <div className="img_views" onClick={()=> this.setImage4(products.image4)}>
-                                                        <img src={products.image4} id={setImageMain === products.image4 ? "active" : ""}/>
-                                                    </div>
-                                                }
-                                            </div>
+                                           {showCompleImg} 
                                         </div>
                                     </div>
-                                    </div>
+                                </div>
                                     <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                         <div className="conten_view">
                                             <b>NEW PRINTS</b>

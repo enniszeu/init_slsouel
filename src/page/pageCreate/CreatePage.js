@@ -135,33 +135,23 @@ class CreatePage extends React.Component{
             color5: e.target.value
         });
     }
-
-
     onChangeImage(e){
-        let reader = new FileReader();
         let file = e.target.files[0];
 
           this.setState({
             file: file
-          });
-
-        
+          }); 
     }
 
     // onChangeImage1(e){
-    //     let reader = new FileReader();
-    //     let file = e.target.files[0];
-
-    //     reader.onloadend = () => {
+    //     let file1 = e.target.files[0];
+    //     console.log(file1)
     //       this.setState({
-    //         file1: file,
-    //         image1: reader.result
-    //       });
-    //     }
-
-    //     reader.readAsDataURL(file)
+    //         file1: file1
+    //       }); 
         
     // }
+
     // onChangeImage2(e){
     //     let reader = new FileReader();
     //     let file = e.target.files[0];
@@ -207,7 +197,7 @@ class CreatePage extends React.Component{
 
 
     callApiFunc = () => {
-        var { products, price, species, describe,file, kho, date} = this.state;
+        var { products, price, species, describe,file, kho, date, color1, color2, color3, color4, color5} = this.state;
 
         const formData = new FormData();
         formData.append('imgeFile',file);
@@ -217,36 +207,41 @@ class CreatePage extends React.Component{
         formData.append('describe',describe);
         formData.append('kho',kho);
         formData.append('date',date);
+        formData.append('color1',color1);
+        formData.append('color2',color2);
+        formData.append('color3',color3);
+        formData.append('color4',color4);
+        formData.append('color5',color5);
 
         callApi('create', 'POST', formData).then(res =>{
             this.setState({redirct : res.status})
-        })  b 
+        }) 
     }
 
     onSubmit(e){
         e.preventDefault();
         var { products, price, species, describe,file} = this.state;
         
-        if(!file){
-          this.setState({ERRimage:"ERRimage"})
-          return true;
-        }
-        if(!products){
-          this.setState({ERRproducts:"ERRproducts"})
-          return true;
-        }
-        if(!price){
-          this.setState({ERRprice:"ERRprice"})
-          return true;
-        }
-        if(!species){
-          this.setState({ERRspecies:"ERRspecies"})
-          return true;
-        }
-        if(!describe){
-          this.setState({ERRdescribe:"ERRdescribe"})
-          return true;
-        }
+        // if(!file){
+        //   this.setState({ERRimage:"ERRimage"})
+        //   return true;
+        // }
+        // if(!products){
+        //   this.setState({ERRproducts:"ERRproducts"})
+        //   return true;
+        // }
+        // if(!price){
+        //   this.setState({ERRprice:"ERRprice"})
+        //   return true;
+        // }
+        // if(!species){
+        //   this.setState({ERRspecies:"ERRspecies"})
+        //   return true;
+        // }
+        // if(!describe){
+        //   this.setState({ERRdescribe:"ERRdescribe"})
+        //   return true;
+        // }
         this.setState({alertCustom : "alertCustom"})
         // {this.thenGetDownloadUrl()}
         {this.callApiFunc()}

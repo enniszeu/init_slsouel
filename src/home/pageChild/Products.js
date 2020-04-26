@@ -29,10 +29,10 @@ class Products extends React.Component{
     	const {products, redirct} = this.state
     	var showTable = products.map((product, index)=>{
     		return ( 
-			    <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 " key={index}>
+			    <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4" id={ product.price ? "" : "display_not"} key={index}>
 					<Link to={`product/${product._id}`}>
 						<div className="colection1" >
-						<img src={product.imgeFile} />
+						<img src={`https://glaze-playful-traffic.glitch.me/${product.imgeFile}`} />
 
 						</div>
 						<div className="title_product">
