@@ -110,7 +110,7 @@ class CartPage extends React.Component{
 
         var showCart = carts.map((cart, index)=>{
         	return (
-        		<div key={index}><img src={cart.imgeFile}/>
+        		<div key={index}><img src={`https://glaze-playful-traffic.glitch.me/${cart.imgeFile} `}/>
         			
         			<span>
         				<div className="qty_see bobile_no">
@@ -169,7 +169,7 @@ class CartPage extends React.Component{
 	    			</div>
 	    			<div className="row custom_row">
 	    			<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 custom_col">
-	    				<div className="cart_img" id="cartImg"></div>
+	    				<div className="cart_img mypham" id="cartImg"></div>
 	    				<div className="errUpload">
 	    					<p>{errUpload}</p>
 	    					<b>{errPay}</b>

@@ -226,7 +226,7 @@ class ViewProduct extends React.Component{
                 <tbody>
                     <tr key={index}>
                     <td>
-                        <img src={cart.imgeFile} />
+                        <img src={`https://glaze-playful-traffic.glitch.me/${cart.imgeFile}`} />
                     </td>
                     <td>x{cart.qty}</td>
                     <td>{cart.products}</td>
@@ -239,7 +239,7 @@ class ViewProduct extends React.Component{
 
         var showCompleImg = productsPai.map((products, index)=>{
             return ( 
-                <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 custom_col" id={ products.products === setImageName ? "" : "display_not"}>
+                <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 custom_col" id={ products.products === setImageName ? "" : "display_not"} key={index}>
                     {products.imgeFile1 === "" ? 
                         <div className="notImg"></div> :
                         <div className="img_views" onClick={()=> this.setImage1(products.imgeFile1)}>
@@ -291,7 +291,7 @@ class ViewProduct extends React.Component{
                                             </table>
                                             <div className="send_mails">
                                                 <Link to="/cart" ><button type="button" className="qty_button">ĐI ĐẾN GIỎ</button></Link>
-                                                <Link to="/" ><button className="qty_button" type="button" style={{background:"#ccb48e",border: "1px solid #ccb48e"}}>TIẾP TỤC MUA HÀNG</button></Link>
+                                                <Link to="/" ><button className="qty_button" type="button" style={{background:"#3cd3dd",border: "1px solid #3cd3dd"}}>TIẾP TỤC MUA HÀNG</button></Link>
                                             </div>
 
                                         </div>

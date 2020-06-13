@@ -34,7 +34,7 @@ class Addtion extends React.Component{
                             </tr>
                             <tr className="alt">
                                 <th>THƯƠNG HIỆU:</th>
-                                <td><p>SLSOUEL</p>
+                                <td><p>Prinkni</p>
                                 </td>
                             </tr>
                                 <tr className="">

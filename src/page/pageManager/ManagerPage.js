@@ -132,7 +132,7 @@ class ManagerPage extends React.Component{
      	// console.log(showProductName)
     	var showTableImgConten = products.map((product, index)=>{
     		return ( 
-			    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id={ product.off === "off" ? "" : "display_not"} key={index}>
+			    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4" id={ product.off === "off" ? "" : "display_not"} key={index}>
 					<div className="conten_image_product1" >
 						<img style={ product.price ? {display:"none"} : {}} src={`https://glaze-playful-traffic.glitch.me/${product.imgeFile1}`} />
 						<Checkbox style={ product.price ? {display:"none"} : {position:"absolute",left:"70%"}} onClick={()=> this.onDelete(product._id)}/>
@@ -146,7 +146,7 @@ class ManagerPage extends React.Component{
 			    <tr key={index} id={ product.off === "off" ? "display_not" : ""}>
 			      <th scope="row">{index + 1}</th>
 			      <td>
-			      	<img src={`https://glaze-playful-traffic.glitch.me/${product.imgeFile}`}style={{width:"50px", height:"50px"}} />
+			      	<img src={ product.imgeFile ? `https://glaze-playful-traffic.glitch.me/${product.imgeFile}` : ""} style={{width:"50px", height:"50px"}} />
 			      </td>
 			      <td >{product.products}</td>
 			      <td>{` ${product.price}$`}</td>
@@ -155,7 +155,7 @@ class ManagerPage extends React.Component{
 			      	<Checkbox onClick={()=> this.onDelete(product._id, product.imgeFile)}/>
 			      		<div onClick={()=> this.showProduct(product.products, product.imgeFile)}>
 			      			<Link to="/manager">
-			      				<i class="fas fa-plus"></i>
+			      				<i className="fas fa-plus"></i>
 			      			</Link>
 			      		</div>
 			      </td>
@@ -169,10 +169,10 @@ class ManagerPage extends React.Component{
         			<div className="close_imgc1" onClick={this.closeIconeImg}><CloseIcon/> </div>
         			<div className="conten_image_product">
         				<img src={`https://glaze-playful-traffic.glitch.me/${showProductImage}`} />
-        				<div class="row">
+        				<div className="row">
         					{showTableImgConten}
         					<input name="imgeFile1" className="form-control" type="file" onChange={this.onChangeImage1} />
-        					<button type="submit" onClick={()=> this.callApiFunc(showProductName)} class="btn btn-default">button</button>
+        					<button type="submit" onClick={()=> this.callApiFunc(showProductName)} className="btn btn-default">button</button>
         				</div>
         			</div>
         		</div>

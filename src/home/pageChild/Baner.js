@@ -18,7 +18,6 @@ class Baner extends React.Component{
 				    <div className="item active">
 				      <div className="img_c1"></div>
 				      <div className="carousel-caption">
-				        <p>New the Solod</p>
 				        <h1>Into the Blue Collection </h1>
 				        {/*<div className="shoppe">
 				        	<Link to=""><div> shoppe colection</div></Link>
@@ -29,24 +28,14 @@ class Baner extends React.Component{
 				    <div className="item">
 				      <div className="img_c2"></div>
 				      <div className="carousel-caption">
-				        <p>New the Solod</p>
+				        
 				        <h1>A Collection of Creative Prints </h1>
 				        {/*<div className="shoppe">
 				        	<Link to=""><div>shoppe colection</div></Link>
-				        </div>*/}
+				        </div>*/} 
 				      </div>
 				    </div>
-				    <div className="item">
-				      <div className="img_c3"></div>
-				      <div className="carousel-caption">
-				        <p>New the Solod</p>
-				        <h1>A selection of creative works </h1>
-				      {/*  <div className="shoppe">
-				        	<Link to=""><div>shoppe colection</div></Link>
-				        </div>*/}
-				      </div>
-				    </div>
-				  </div>
+				  </div> 
 				  <a className="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
 				    <ArrowBackIosIcon />
 				    <span className="sr-only">Previous</span>

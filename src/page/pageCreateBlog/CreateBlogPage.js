@@ -15,7 +15,7 @@ class Editor extends React.Component{
                 loader:"",
                 heyConten:"",
                 showMeau:"",
-                active:false,
+                active:true,
                 editorHtml: '',
                 theme: 'snow'
             }
@@ -64,7 +64,7 @@ class Editor extends React.Component{
                                     <h3>elsoule</h3>
                                     <hr/>
                                     <div className="nav_meau">
-                                            <NavMeauBar activeDashboard={this.state.active} />
+                                            <NavMeauBar activeBlog={this.state.active} />
                                     </div>
                                 </div>
                                 <div className={`conten ${heyConten}`}>

@@ -54,7 +54,8 @@ class CreatePage extends React.Component{
                 color2:"",
                 color3:"",
                 color4:"",
-                color5:""
+                color5:"",
+                conten:""
             }
 
             this.onChangeProducts = this.onChangeProducts.bind(this);
@@ -73,6 +74,7 @@ class CreatePage extends React.Component{
             this.onChangeColor3 = this.onChangeColor3.bind(this);
             this.onChangeColor4 = this.onChangeColor4.bind(this);
             this.onChangeColor5 = this.onChangeColor5.bind(this);
+            this.onChangeConten = this.onChangeConten.bind(this);
             this.onSubmit = this.onSubmit.bind(this);
         }
 
@@ -142,6 +144,11 @@ class CreatePage extends React.Component{
             file: file
           }); 
     }
+    onChangeConten(e){
+        this.setState({
+            conten: e.target.value
+        });
+    }
 
     // onChangeImage1(e){
     //     let file1 = e.target.files[0];
@@ -197,7 +204,7 @@ class CreatePage extends React.Component{
 
 
     callApiFunc = () => {
-        var { products, price, species, describe,file, kho, date, color1, color2, color3, color4, color5} = this.state;
+        var {conten, products, price, species, describe,file, kho, date, color1, color2, color3, color4, color5} = this.state;
 
         const formData = new FormData();
         formData.append('imgeFile',file);
@@ -212,6 +219,7 @@ class CreatePage extends React.Component{
         formData.append('color3',color3);
         formData.append('color4',color4);
         formData.append('color5',color5);
+        formData.append('conten',conten);
 
         callApi('create', 'POST', formData).then(res =>{
             this.setState({redirct : res.status})
@@ -311,7 +319,7 @@ class CreatePage extends React.Component{
                                 </div>
                                 <div className={`conten ${heyConten}`}>
                                         { heyConten === "heyConten" ? <div className="meau_mobi" onClick={this.closeMeau}> <CloseIcon /> </div> : <div className="meau_mobi" onClick={this.showMeau}> <MenuIcon /> </div> }
-                                    <h3>User Profile</h3>
+                                    <h3>Thêm sảm phẩm</h3>
                                         <div className="row custom_row" id={alertCustom !== "" ? "alertCustom" : ""}>
                                             <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 custom_col">
                                                 <div className="card">
@@ -319,18 +327,20 @@ class CreatePage extends React.Component{
                                                   </div>
                                                   <div className="card-body">
                                                     
-                                                    <h5 className="card-title">Elsouel</h5>
-                                                    <p className="card-text">"I like the way you work itNo diggityI wanna bag it up".</p>
+                                                    <h5 className="card-title">Bich cho</h5>
+                                                    <p className="card-text">Ngu si</p>
                                                     <hr/>
-                                                    <Link to="#" className="btn btn-primary">Go somewhere</Link>
+                                                    <div className="send_mail">
+                                                        <button type="button" style={{padding:"2px 10px"}}>Xem Them</button>
+                                                    </div>
                                                   </div>
                                                 </div>
                                                 <div className="card">
-                                                  <div className="box_upload">
+                                                {/*  <div className="box_upload">
                                                     
                                                     <h3 className="card-title">Img Product</h3>
                                                     { imgeFile ? <img src={imgeFile} /> : ""}
-                                                  </div>
+                                                  </div>*/}
                                                 </div>
 
                                             </div>
@@ -369,7 +379,18 @@ class CreatePage extends React.Component{
                 input: <div><p>Date</p><input type="text" name="date" className="form-control date" disabled placeholder={Date()} value={Date()} onChange={this.onChangeDate}/></div>
             },
             {
-                input:<div><p>Products</p><input type="text" name="products" className={`form-control ${this.state.ERRproducts}`} placeholder="products" onChange={this.onChangeProducts}/></div>
+                input: <div className="" >
+                          <select style={{width:"20%", height:"50px", background:"#cce5ff96", border:"none"}} defaultValue={'DEFAULT'} className="form-control input-custom" id="inlineFormCustomSelect" onChange={this.onChangeConten} name="conten">
+                            <option value="DEFAULT" disabled>Chọn mục</option>
+                            <option defaultValue="1">Mỹ phẩm</option>
+                            <option defaultValue="1">Thời trang</option>
+                            <option defaultValue="2">Phụ kiện</option>
+                            <option defaultValue="3">Lặt vặt</option>
+                          </select>
+                        </div>
+            },
+            {
+                input:<div><p>Tên sản phẩm</p><input type="text" name="products" className={`form-control ${this.state.ERRproducts}`} placeholder="products" onChange={this.onChangeProducts}/></div>
             },
             {
                 input:<div><p>Species</p><input type="text" name="species" className={`form-control species ${this.state.ERRspecies}`} placeholder="species" onChange={this.onChangeSpecies}/></div>
@@ -379,7 +400,7 @@ class CreatePage extends React.Component{
             },
             {
                 input:<div>
-                        <p>Set Color</p>
+                        <p>Màu sản phẩm</p>
                         <input className="form-check-input" type="text" name="color1" id="inlineRadio1" onChange={this.onChangeColor1}/>
                          &nbsp;
                         <input className="form-check-input" type="text" name="color2" id="inlineRadio1" onChange={this.onChangeColor2}/>
@@ -394,15 +415,15 @@ class CreatePage extends React.Component{
                     </div>
             },
             {
-                input:<div><p>Price</p><input type="number" name="price" className={`form-control price ${this.state.ERRprice}`} placeholder="200.000 $" onChange={this.onChangePrice}/><b>vnd</b></div>
+                input:<div><p>Gía</p><input type="number" name="price" className={`form-control price ${this.state.ERRprice}`} placeholder="$" onChange={this.onChangePrice}/><b>.000 Vnd</b></div>
             },
             
             {
-                input:<div><p>image</p><input name="imgeFile" className={`form-control file imageFile ${this.state.ERRimage}`} id="exampleFormControlFile1" type="file" onChange={this.onChangeImage} /></div>
+                input:<div><p>Hình ảnh</p><input name="imgeFile" className={`form-control file imageFile ${this.state.ERRimage}`} id="exampleFormControlFile1" type="file" onChange={this.onChangeImage} /></div>
             },
             {
                 input:<div>
-                        <p>Describe</p>
+                        <p>Mô tả sản phẩm</p>
                         <textarea 
                             className={`form-control ${this.state.ERRdescribe}`} 
                             id="exampleFormControlTextarea1" rows="6" 

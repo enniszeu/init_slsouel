@@ -32,14 +32,13 @@ class Products extends React.Component{
 			    <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4" id={ product.price ? "" : "display_not"} key={index}>
 					<Link to={`product/${product._id}`}>
 						<div className="colection1" >
-						<img src={`https://glaze-playful-traffic.glitch.me/${product.imgeFile}`} />
+						<img src={ product.imgeFile ? `https://glaze-playful-traffic.glitch.me/${product.imgeFile}` : ""} />
 
 						</div>
 						<div className="title_product">
 							<p>NEW PRINTS</p>
 							<b>{product.products}</b>
 							<hr/>
-							<span>${product.price}</span>
 						</div>
 					</Link>
 				</div>
@@ -50,6 +49,9 @@ class Products extends React.Component{
 				<div className="box_main">
 					{redirct === 200 ? showTable : <div className="loading" style={{marginTop:"0", padding:"40px"}}>Loading&#8230;</div>}
 				</div>
+                <div className="send_mail">
+                    <button type="button">Xem Them</button>
+                </div>
 			</div>
 			
     	)

@@ -37,16 +37,16 @@ class NavMeauBar extends React.Component{
         	const {active,active1,active2,active3,active4,active5,active6} = this.state
         	const navMeau = [
 						{
-							nav:<li className={this.props.activeDashboard === true ? "active" : ""}><Link to="dashboard"><DashboardIcon /><span> DASHBOARD</span> </Link></li>
+							nav:<li className={this.props.activeDashboard === true ? "active" : ""}><Link to="/dashboard"><DashboardIcon /><span> DASHBOARD</span> </Link></li>
 						},
 						{
-							nav:<li className={this.props.activeProduct === true ? "active" : ""}><Link to="create"><CreateNewFolderIcon /><span>USER ROFILE</span> </Link></li>
+							nav:<li className={this.props.activeProduct === true ? "active" : ""}><Link to="/create"><CreateNewFolderIcon /><span>Create Product</span> </Link></li>
 						},
 						{
-							nav:<li className={this.props.active === true ? "active" : ""}><Link to="manager"><TocIcon /> <span>TABLE LIST</span> </Link></li>
+							nav:<li className={this.props.active === true ? "active" : ""}><Link to="/manager"><TocIcon /> <span>TABLE LIST</span> </Link></li>
 						},
 						{
-							nav:<li className={active3 === true ? "active" : ""}><Link to="manager"><SmsIcon /> <span>TYOGRAHY</span> </Link></li>
+							nav:<li className={this.props.activeBlog === true ? "active" : ""}><Link to="create/blog"><SmsIcon /> <span>Create Blog</span> </Link></li>
 						},
 						{
 							nav:<li className={active4 === true ? "active" : ""}><Link to="manager"><TocIcon /><span> ICONS</span> </Link></li>

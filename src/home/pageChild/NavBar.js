@@ -30,7 +30,9 @@ class NavBar extends React.Component{
 						<MenuIcon/>
 					</div>
 					<div className="logo_">
-						<Link style={{color:"#000"}} to=""><div style={{fontSize:"25px", }}><span style={{background:"#ccb48e", display:"inline-block", paddingLeft:"10px"}}>Slso</span>uel.</div></Link>
+						<Link style={{color:"#000"}} to="">
+							<img src="https://demo17.atiframe.com/wp-content/uploads/2020/03/logo.svg" />
+						</Link>
 					</div>
 					<div className="nav_">
 						<ul>

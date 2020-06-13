@@ -7,9 +7,9 @@ import Products from ".././pageChild/Products";
 import callApi from './../../utils/apicaler';
 import {
   Link
-} from "react-router-dom";
+} from "react-router-dom"; 
 
-class Man extends React.Component{
+class Mypham extends React.Component{
   constructor(props){
             super(props);
 
@@ -86,12 +86,12 @@ class Man extends React.Component{
                 </div>
                <div className="row custom_row">
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 custom_col">
-                        <div className="cart_img"></div>
+                        <div className="cart_img mypham"></div>
                     </div>
                 </div>
                 <div className="row custom_row">
                     <div className="title_pay">
-                        <h3>ĐỒ NAM</h3>
+                        <h3>My Pham</h3>
                         <hr/>
                     </div>
                     <div className="box_main">
@@ -113,4 +113,4 @@ class Man extends React.Component{
         )
       }
   }
-export default Man;
+export default Mypham;

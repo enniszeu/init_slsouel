@@ -10,7 +10,7 @@
 	.img_bia{
 		@extend %bg_img;
 		height: 150px;
-		background-image: url(".././image/bia.jpg");
+		background-image: url(".././image/mypham.jpg");
 		padding-top: 120px;
 		padding-left: 90px;
 
@@ -118,7 +118,7 @@ form{
   width: 50px;
   border:none;
   border-radius: 20px;
-  background-color: #68B3C8 !important;
+  background-color: $hover_ !important;
   padding: 5px;
 }
 

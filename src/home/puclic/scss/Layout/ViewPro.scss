@@ -38,6 +38,8 @@
 }
 .view-wapper{
 	padding: 0 20px;
+	max-width: 500px;
+    margin: auto;
 	.img_view{
 		padding: 30px;
 		background: #f5f5f5;
@@ -212,10 +214,25 @@
 	
 }
 .cart_img{
-	background-image: url("https://firebasestorage.googleapis.com/v0/b/slsouel.appspot.com/o/image%2Fback_shop_title.jpg?alt=media&token=dd20cd1f-360b-40aa-854d-5dbcc4c77371");
 	width: 100%;
 	height: 400px;
 	background-size: cover;
+}
+.mypham{
+	background-image: url("../.././puclic/img/mypham.jpg");
+
+}
+.thoitrang{
+	background-image: url("../.././puclic/img/thoitrang.jpg");
+
+}
+.phukien{
+	background-image: url("../.././puclic/img/phukien.jpg");
+
+}
+.latvat{
+	background-image: url("../.././puclic/img/latvat.jpg");
+
 }
 .errUpload{
 	margin-top: 40px;
@@ -329,8 +346,9 @@
 	width: 32%;
 	height: 40px;
 	color: $white;
-	border: 1px solid #353535;
-	background-color: #353535;
+	border: 1px solid #3cd3dd;
+	background-color: #3cd3dd;
+	color: #000;
 	font-size: 11px;
 	font-weight: 600;
 	transition: .3s ease-in-out;

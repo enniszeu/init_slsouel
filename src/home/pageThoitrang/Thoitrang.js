@@ -8,8 +8,8 @@ import callApi from './../../utils/apicaler';
 import {
   Link
 } from "react-router-dom";
-
-class Girl extends React.Component{
+ 
+class Thoitrang extends React.Component{
   constructor(props){
             super(props);
 
@@ -59,10 +59,10 @@ class Girl extends React.Component{
 
     var showTable = productsSp.map((product, index)=>{
             return ( 
-                <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4" id={(product.species === "girl") ? " display_man" : "display_yi"} key={index}>
+                <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4" id={(product.conten === "Thoi trang") ? " display_man" : "display_yi"} key={index}>
                     <Link to={`product/${product._id}`}>
                         <div className="colection1"  >
-                        <img src={product.imgeFile} />
+                        <img src={`https://glaze-playful-traffic.glitch.me/${product.imgeFile} `} />
 
                         </div>
                         <div className="title_product">
@@ -86,12 +86,12 @@ class Girl extends React.Component{
                 </div>
                <div className="row custom_row">
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 custom_col">
-                        <div className="cart_img"></div>
+                        <div className="cart_img thoitrang"></div>
                     </div>
                 </div>
                 <div className="row custom_row">
                     <div className="title_pay">
-                        <h3>ĐỒ NỮ</h3>
+                        <h3>Thoi Trang</h3>
                         <hr/>
                     </div>
                     <div className="box_main">
@@ -113,4 +113,4 @@ class Girl extends React.Component{
         )
       }
   }
-export default Girl;
+export default Thoitrang;

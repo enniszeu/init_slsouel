@@ -44,7 +44,7 @@ class RandomCart extends React.Component{
                             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <Link to={random1._id}>
                                 <div className="colection1" style={{background:"#fff"}} >
-                                    <img src={random1.imgeFile} />
+                                    <img src={`https://glaze-playful-traffic.glitch.me/${random1.imgeFile} `} />
                                     <div className="title_product">
                                         <b>{random1.products}</b>
                                         <hr/>
@@ -56,7 +56,7 @@ class RandomCart extends React.Component{
                             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <Link to={random2._id}>
                                 <div className="colection1" style={{background:"#fff"}} >
-                                <img src={random2.imgeFile} />
+                                <img src={`https://glaze-playful-traffic.glitch.me/${random2.imgeFile} `} />
                                 <div className="title_product">
                                     <b>{random2.products}</b>
                                     <hr/>
@@ -68,7 +68,7 @@ class RandomCart extends React.Component{
                             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <Link to={random3._id}>
                                 <div className="colection1" style={{background:"#fff"}} >
-                                <img src={random3.imgeFile} />
+                                <img src={`https://glaze-playful-traffic.glitch.me/${random3.imgeFile} `} />
                                 <div className="title_product">
                                     <b>{random3.products}</b>
                                     <hr/>

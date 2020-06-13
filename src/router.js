@@ -8,8 +8,10 @@ import Cart from './page/pageCart/CartPage';
 import Pay from './page/pageCart/PayPage';
 import PageHome from './home/PageHome';
 import ViewProduct from './home/pageView/ViewProduct';
-import Man from './home/pageMan/Man';
-import Girl from './home/pageGirl/Girl';
+import Mypham from './home/pageMypham/Mypham';
+import Thoitrang from './home/pageThoitrang/Thoitrang';
+import Phukien from './home/pagePhukien/Phukien';
+import Latvat from './home/pageLatvat/Latvat';
 
 
 
@@ -40,19 +42,29 @@ const routes = [
 		main: () => <AddChiTiet />
 	},
 	{
-		path:"/blog",
+		path:"/create/blog",
 		exact:true,
 		main: () => <CreateBlog />
 	},
 	{
-		path:"/man",
+		path:"/mypham",
 		exact:true,
-		main: () => <Man />
+		main: () => <Mypham />
 	},
 	{
-		path:"/girl",
+		path:"/thoitrang",
 		exact:true,
-		main: () => <Girl />
+		main: () => <Thoitrang />
+	},
+	{
+		path:"/phukien",
+		exact:true,
+		main: () => <Phukien />
+	},
+	{
+		path:"/latvat",
+		exact:true,
+		main: () => <Latvat />
 	},
 	{
 		path:"/product/:id",
