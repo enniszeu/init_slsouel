@@ -5,11 +5,11 @@ import {
 } from "react-router-dom";
 
 class Products extends React.Component{
- 	constructor(props){
+    constructor(props){
             super(props);
             this.state = {
                 redirct:0,
-                products:[]        	}
+                products:[]         }
     }
 
     componentDidMount(){
@@ -18,6 +18,7 @@ class Products extends React.Component{
 
     apiExpress = () =>{
         callApi('', 'GET', null).then(res =>{
+            console.log(res.data)
             this.setState({
                 redirct : res.status,
                 products : res.data
@@ -26,35 +27,45 @@ class Products extends React.Component{
     }
 
     render(){
-    	const {products, redirct} = this.state
-    	var showTable = products.map((product, index)=>{
-    		return ( 
-			    <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4" id={ product.price ? "" : "display_not"} key={index}>
-					<Link to={`product/${product._id}`}>
-						<div className="colection1" >
-						<img src={ product.imgeFile ? `https://glaze-playful-traffic.glitch.me/${product.imgeFile}` : ""} />
+        const {products, redirct} = this.state
+        var showTable = products.map((product, index)=>{
+            return ( 
+                <div className="col-xs-6 col-sm-4 col-md-4 col-lg-4" style={{paddingRight:"6px", paddingLeft: "6px"}} id={ product.price ? "" : "display_not"} key={index}>
+                    <Link to={`product/${product._id}`}>
+                        <div className="colection1" >
+                        <img src={ product.imgeFile ? `https://glaze-playful-traffic.glitch.me/${product.imgeFile}` : ""} />
 
-						</div>
-						<div className="title_product">
-							<p>NEW PRINTS</p>
-							<b>{product.products}</b>
-							<hr/>
-						</div>
-					</Link>
-				</div>
-    		)
-    	})
-    	return(
-    		<div className="row custom_row">
-				<div className="box_main">
-					{redirct === 200 ? showTable : <div className="loading" style={{marginTop:"0", padding:"40px"}}>Loading&#8230;</div>}
-				</div>
+                        </div>
+                        <div className="title_product">
+                            <p>NEW PRINTS</p>
+                            <b>{product.products}</b>
+                            <hr/>
+                            <span>Gia {product.price}.000 Vnd</span>
+                        </div>
+                    </Link>
+                </div>
+            )
+        })
+        return(
+            <div className="row custom_row">
+                <div className="out_soure">
+                    <div className="img_out" style={{background:"none", padding:"80px 400px", height:"300px"}}>
+                        <span class="t1">TAKE A LOOK</span>
+                        <h3>San Pham Moi</h3>
+                        <hr/>
+                        <p>Latest news and researches from printing industry
+                        </p>
+                    </div>
+                </div>
+                <div className="box_main">
+                    {redirct === 200 ? showTable : <div className="loading" style={{marginTop:"0", padding:"40px"}}>Loading&#8230;</div>}
+                </div>
                 <div className="send_mail">
                     <button type="button">Xem Them</button>
                 </div>
-			</div>
-			
-    	)
+            </div>
+            
+        )
     }
 }
 export default Products;

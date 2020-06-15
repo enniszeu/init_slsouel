@@ -383,9 +383,15 @@ class CreatePage extends React.Component{
                           <select style={{width:"20%", height:"50px", background:"#cce5ff96", border:"none"}} defaultValue={'DEFAULT'} className="form-control input-custom" id="inlineFormCustomSelect" onChange={this.onChangeConten} name="conten">
                             <option value="DEFAULT" disabled>Chọn mục</option>
                             <option defaultValue="1">Mỹ phẩm</option>
-                            <option defaultValue="1">Thời trang</option>
-                            <option defaultValue="2">Phụ kiện</option>
+                            <option defaultValue="1" style={{color:"red"}}>HÀNG SALE</option>
                             <option defaultValue="3">Lặt vặt</option>
+                            <option defaultValue="3">Trang sức</option>
+                            <option defaultValue="3">Phụ kiện tiện ích</option>
+                            <option defaultValue="3">Trang trí nội thất</option>
+                            <option defaultValue="3">Giai Trí</option>
+                            <option defaultValue="3">Điện thoại</option>
+                            <option defaultValue="3">Văn phòng phẩm</option>
+
                           </select>
                         </div>
             },
@@ -393,7 +399,7 @@ class CreatePage extends React.Component{
                 input:<div><p>Tên sản phẩm</p><input type="text" name="products" className={`form-control ${this.state.ERRproducts}`} placeholder="products" onChange={this.onChangeProducts}/></div>
             },
             {
-                input:<div><p>Species</p><input type="text" name="species" className={`form-control species ${this.state.ERRspecies}`} placeholder="species" onChange={this.onChangeSpecies}/></div>
+                input:<div><p>Thể loại</p><input type="text" name="species" className={`form-control species ${this.state.ERRspecies}`} placeholder="Thể loại" onChange={this.onChangeSpecies}/></div>
             },
             {
                 input:<div><p>Kho</p><input type="text" name="kho" className={`form-control species`} placeholder="kho" onChange={this.onChangeKho}/></div>

@@ -42,7 +42,7 @@ class Latvat extends React.Component{
                 let {start, end} = this.state;
                 this.setState({
                     redirct : res.status,
-                    products : res.data
+                    products : res.data.posts
                 })
             })
         }
@@ -59,7 +59,7 @@ class Latvat extends React.Component{
 
     var showTable = productsSp.map((product, index)=>{
             return ( 
-                <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4" id={(product.conten === "Lat vat") ? " display_man" : "display_yi"} key={index}>
+                <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4" id={(product.conten === "Lặt vặt") ? " display_man" : "display_yi"} key={index}>
                     <Link to={`product/${product._id}`}>
                         <div className="colection1"  >
                         <img src={product.imgeFile} />
@@ -91,7 +91,7 @@ class Latvat extends React.Component{
                 </div>
                 <div className="row custom_row">
                     <div className="title_pay">
-                        <h3>Lat Vat</h3>
+                        <h3>Lặt vặt</h3>
                         <hr/>
                     </div>
                     <div className="box_main">

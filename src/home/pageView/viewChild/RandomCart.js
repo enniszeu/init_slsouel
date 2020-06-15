@@ -20,9 +20,9 @@ class RandomCart extends React.Component{
         componentDidMount(){
         	callApi('manager', 'GET', null).then(res =>{
             this.setState({
-                random1 : res.data[Math.floor(Math.random() * res.data.length)],
-                random2 : res.data[Math.floor(Math.random() * res.data.length)],
-                random3 : res.data[Math.floor(Math.random() * res.data.length)]
+                random1 : res.data.posts[Math.floor(Math.random() * res.data.posts.length)],
+                random2 : res.data.posts[Math.floor(Math.random() * res.data.posts.length)],
+                random3 : res.data.posts[Math.floor(Math.random() * res.data.posts.length)]
             })
         	
         })

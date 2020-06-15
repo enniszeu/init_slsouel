@@ -51,7 +51,7 @@ class ViewProduct extends React.Component{
 
             callApi('manager', 'GET', null).then(res =>{
                 this.setState({
-                    productsPai : res.data
+                    productsPai : res.data.posts
                 })
             })
 

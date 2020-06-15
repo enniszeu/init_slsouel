@@ -1,11 +1,11 @@
 import React from 'react';
 import callApi from './../../utils/apicaler';
-import {storage} from './../../utils/ConfigFirebase';
 import Checkbox from '@material-ui/core/Checkbox';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import NavMeauBar from './const_childer/nav_meau';
 import '.././puclic/scss/style.css';    
+import Proce from '../pageCreate/Proce';
 import {
   Link,
   Redirect
@@ -27,7 +27,9 @@ class ManagerPage extends React.Component{
                 showProductImage:"",
                 showProductName:"",
                 onshowProductImage:"",
-                file:""
+                file:"",
+                alertCustom:"",
+                views:[]
             }
         }
 
@@ -35,8 +37,8 @@ class ManagerPage extends React.Component{
     componentDidMount(){
     	callApi('manager', 'GET', null).then(res =>{
 			this.setState({
-				products : res.data,
-				redirct : res.status
+				products : res.data.posts,
+				views : res.data.views
 			})
 		})
 
@@ -109,9 +111,10 @@ class ManagerPage extends React.Component{
         formData.append('imgeFile1',file);
         formData.append('products',name);
 
+        this.setState({alertCustom : "alertCustom"})
 
         callApi('create/addimg', 'POST', formData).then(res =>{
-            // this.setState({redirct : res.status})
+            this.setState({redirct : res.status})
         }) 
        	
        	setTimeout(function(){ window.location.reload() }, 500);
@@ -123,16 +126,14 @@ class ManagerPage extends React.Component{
 
     render(){
     	
-		const {linkto, products, loader, showMeau, heyConten, redirct, showProductOpacity, showProductImage, onshowProductImage, showProductName} = this.state
+		const {views, alertCustom, linkto, products, loader, showMeau, heyConten, redirct, showProductOpacity, showProductImage, onshowProductImage, showProductName} = this.state
 		setInterval(() => {
-    		if( redirct === 200){
     			this.setState({ loader: "loaders" });
-    		}
      	}, 500);
      	// console.log(showProductName)
-    	var showTableImgConten = products.map((product, index)=>{
+    	var showTableImgConten = views.map((product, index)=>{
     		return ( 
-			    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4" id={ product.off === "off" ? "" : "display_not"} key={index}>
+			    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4" id={ product.products === showProductName ? "" : "display_not"} key={index}>
 					<div className="conten_image_product1" >
 						<img style={ product.price ? {display:"none"} : {}} src={`https://glaze-playful-traffic.glitch.me/${product.imgeFile1}`} />
 						<Checkbox style={ product.price ? {display:"none"} : {position:"absolute",left:"70%"}} onClick={()=> this.onDelete(product._id)}/>
@@ -149,7 +150,7 @@ class ManagerPage extends React.Component{
 			      	<img src={ product.imgeFile ? `https://glaze-playful-traffic.glitch.me/${product.imgeFile}` : ""} style={{width:"50px", height:"50px"}} />
 			      </td>
 			      <td >{product.products}</td>
-			      <td>{` ${product.price}$`}</td>
+			      <td>{` ${product.price}.000 Vnd`}</td>
 			      <td>{product.species}</td>
 			      <td>
 			      	<Checkbox onClick={()=> this.onDelete(product._id, product.imgeFile)}/>
@@ -163,7 +164,9 @@ class ManagerPage extends React.Component{
     		)
     	})
         return(
-        	<div>
+        	<div id={alertCustom}>
+			    {alertCustom !== "" ? <div className=""><Proce /></div> : ""}         
+
         		{ loader === "loaders" ? "" : <div className="loader loader-black loader-1"></div>}
         		<div className={`showProductImage ${onshowProductImage}`}>
         			<div className="close_imgc1" onClick={this.closeIconeImg}><CloseIcon/> </div>

@@ -42,7 +42,7 @@ class Thoitrang extends React.Component{
                 let {start, end} = this.state;
                 this.setState({
                     redirct : res.status,
-                    products : res.data
+                    products : res.data.posts
                 })
             })
         }

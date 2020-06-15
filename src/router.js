@@ -11,7 +11,12 @@ import ViewProduct from './home/pageView/ViewProduct';
 import Mypham from './home/pageMypham/Mypham';
 import Thoitrang from './home/pageThoitrang/Thoitrang';
 import Phukien from './home/pagePhukien/Phukien';
-import Latvat from './home/pageLatvat/Latvat';
+import Sale from './home/pageSale/Sale';
+import Trangtri from './home/pageTrangtri/Trangtri';
+import Giaitri from './home/pageGiaitri/Giaitri';
+import Dienthoai from './home/pageDienthoai/Dienthoai';
+import Vanphong from './home/pageVanphong/Vanphong';
+import Trangsuc from './home/pageTrangsuc/Trangsuc';
 
 
 
@@ -62,9 +67,35 @@ const routes = [
 		main: () => <Phukien />
 	},
 	{
-		path:"/latvat",
+		path:"/sale",
 		exact:true,
-		main: () => <Latvat />
+		main: () => <Sale />
+	},
+
+	{
+		path:"/trangtri",
+		exact:true,
+		main: () => <Trangtri />
+	},
+	{
+		path:"/giaitri",
+		exact:true,
+		main: () => <Giaitri />
+	},
+	{
+		path:"/dienthoai",
+		exact:true,
+		main: () => <Dienthoai />
+	},
+	{
+		path:"/vanphong",
+		exact:true,
+		main: () => <Vanphong />
+	},
+	{
+		path:"/trangsuc",
+		exact:true,
+		main: () => <Trangsuc />
 	},
 	{
 		path:"/product/:id",
