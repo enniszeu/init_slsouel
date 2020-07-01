@@ -9,6 +9,7 @@ import OwlCarousels from "./pageChild/OwlCarousels";
 import Intagram from "./pageChild/Intagram";
 import NavBar from "./pageChild/NavBar";
 import callApi from './../utils/apicaler';
+import axios from 'axios';
 import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 
@@ -22,13 +23,28 @@ class PageHome extends React.Component{
             super(props);
             this.state = {
                 loader:"",
-                cartId:0
+                cartId:0,
+                products:[],
+                redirct:0
         	}
     }
 
     componentDidMount(){
         {this.sestionCart()}
+        {this.apiExpress()}
     }
+
+    apiExpress = () =>{
+        axios.get(`https://sdgfsdgdfgzsdfg.herokuapp.com`)
+          .then(res => {
+            this.setState({
+                redirct : res.status,
+                products : res.data
+            })
+          })
+        
+    }
+
 
     sestionCart = () =>{
         var cart = JSON.parse(sessionStorage.getItem('products'));
@@ -43,20 +59,25 @@ class PageHome extends React.Component{
 
    
     render(){
-        const {loader, cartId, display} = this.state
-        setInterval(() => {
-            this.setState({ loader: "loaders" });
-        }, 500);
+        const {loader, cartId, display, products, redirct} = this.state
+        if(redirct === 200){
+            setInterval(() => {
+                this.setState({ loader: "loaders" });
+            });
+        
+        }
         
     	return( 
             <div>
-                <NavBar cartId={cartId}/>
 
                 { loader === "loaders" ? "" : <div class="loader loader-black loader-1"></div>}
     		<div className={`container-fluid custom_fluid ${loader}` }>
     			<div className="row custom_row">
     				<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 custom_col">
+                        <NavBar cartId={cartId}/>
+
     					<Baner />
+
                            		
                         <div className="row custom_row">
     						<div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 custom_col">
@@ -82,9 +103,15 @@ class PageHome extends React.Component{
     						</div>
     					</div>
     					
-    				    <Products />
+    				    <Products/>
+                        <div className="send_mail">
+                            <button type="button">Xem Them</button>
+                        </div>
                         <br/>
-                        <OwlCarousels />
+                        <OwlCarousels products={products} redirct={redirct}/>
+                        <div className="send_mail">
+                            <button type="button">Xem Them</button>
+                        </div>
                         <Outsoure />
                         <div>
                             <MessengerCustomerChat
@@ -92,9 +119,9 @@ class PageHome extends React.Component{
                                 appId="2800125130218333"
                               />
                         </div> 
-                        <Intagram />
+                       {/* <Intagram />
                         <Footer />
-                        <End /> 
+                        <End /> */}
     				</div>
     			</div>
     		</div>

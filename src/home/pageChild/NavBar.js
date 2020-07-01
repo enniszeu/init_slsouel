@@ -131,8 +131,10 @@ class NavBar extends React.Component{
         var scroll2 = window.pageYOffset;
         if (scroll2 === 0) {
         	document.getElementById('nav').style.background = "#fff0";
+            document.getElementById('nav_logo').style.color = "#000";
         }else{
         	document.getElementById('nav').style.background = "#fff";
+            document.getElementById('nav_logo').style.color = "#3cd3dd";
         }
         	scroll1 = scroll2;
         }
@@ -205,17 +207,18 @@ class NavBar extends React.Component{
 						</div>
 					<div className="logo_">
 						<Link style={{color:"#000"}} to="">
-							<img src="https://demo17.atiframe.com/wp-content/uploads/2020/03/logo.svg" />
-						</Link>
+							<img src="https://cdn.glitch.com/1a2d3926-a597-412c-a998-a0aa2ca0b31a%2Fpppp.png?v=1592462756734" width="80px" />
+						    &nbsp; <span id="nav_logo">MIEUMIEU</span>  
+                        </Link>
 					</div>
 					<div className="nav_">
 						<ul>
-							<li> <Link to="/" style={{color:"red"}}> SALE</Link></li>
-							<li> <Link to="/"> SLIME</Link></li>
-							<li> <Link to="/"> TRANG SỨC</Link></li>
-							<li> <Link to="/"> PHỤ KIỆN</Link></li>
-							<li> <Link to="/"> TRANG TRÍ</Link></li>
-							<li> <Link to="/"> GIẢI TRÍ</Link></li>
+							<li> <Link to="/trangsuc"> TRANG SỨC</Link></li>
+							<li> <Link to="/phukien"> PHỤ KIỆN</Link></li>
+							<li> <Link to="/trangtri"> TRANG TRÍ</Link></li>
+							<li> <Link to="/giaitri"> GIẢI TRÍ</Link></li>
+                            <li> <Link to="/sale" style={{color:"red"}}> SALE</Link></li>
+
 						</ul>
 					</div>
 					<div className="cart_">

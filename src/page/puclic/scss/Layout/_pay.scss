@@ -1,4 +1,24 @@
-
+.ERRname{
+	border:1px solid red !important;
+}
+.ERRlastname{
+	border:1px solid red !important;
+}
+.ERRdiachi{
+	border:1px solid red !important;
+}
+.ERRemail{
+	border:1px solid red !important;
+}
+.ERRsdt{
+	border:1px solid red !important;
+}
+.ERRsms{
+	border:1px solid red !important;
+}
+.ERRtrue{
+	border:1px solid #4CAF50 !important;
+}
 
 
 .title_pay{
@@ -6,6 +26,16 @@
 		text-align: center;
 		font-size: 18px;
 		font-weight: 900;
+
+	}
+	p{
+		text-align: center;
+		font-size: 15px;
+		font-weight: 600;
+		i{
+			font-size: 20px;
+			color:rgb(208, 1, 27);;
+		}
 	}
 	hr{
 		width: 10%;

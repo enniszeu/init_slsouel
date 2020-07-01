@@ -9,31 +9,32 @@ class OwlCarousels extends React.Component{
 	constructor(props){
             super(props);
             this.state = {
-                redirct:0,
-                products:[]         }
+                tuideo:"Túi",
+        	}
     }
 
-    componentDidMount(){
-        {this.apiExpress()}
-    }
+	tuideo=()=>{
+		this.setState({tuideo:"Túi"})
+	}
 
-    apiExpress = () =>{
-        callApi('manager', 'GET', null).then(res =>{
-            this.setState({
-                redirct : res.status,
-                products : res.data.posts
-            })
-        })
-    }
+	phukien=()=>{
+		this.setState({tuideo:"Phụ kiện tiện ích"})
+	}
+	dungcu=()=>{
+		this.setState({tuideo:"Văn phòng phẩm"})
+	}
+	latvat=()=>{
+		this.setState({tuideo:"Lặt vặt"})
+	}
 
 	render(){
-		const {products, redirct} = this.state
-        var showTable = products.map((product, index)=>{
+		const {products, redirct} = this.props
+        var showTable = products.slice(0,4).map((product, index)=>{
             return ( 
-                <div className="col-xs-6 col-sm-4 col-md-4 col-lg-4" style={{paddingRight:"6px", paddingLeft: "6px"}} id={ product.price ? "" : "display_not"} key={index}>
+                <div className="col-xs-6 col-sm-4 col-md-4 col-lg-4" style={{paddingRight:"6px", paddingLeft: "6px"}} id={ product.conten === this.state.tuideo ? "" : "display_not"} key={index}>
                     <Link to={`product/${product._id}`}>
                         <div className="colection1" >
-                        <img src={ product.imgeFile ? `https://glaze-playful-traffic.glitch.me/${product.imgeFile}` : ""} />
+                        <img src={ product.imgeFile ? `https://planet-time-linseed.glitch.me/${product.imgeFile}` : ""} />
 
                         </div>
                         <div className="title_product">
@@ -56,31 +57,36 @@ class OwlCarousels extends React.Component{
                         </div>
                         <div class="row active custom_row">
                         	<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                        		<div className="tuideo">
-                        			<img src="https://cdn.glitch.com/ba72007a-b60d-4faa-b311-0093a53c208c%2FReal%20Love.png?v=1592183906811" />
-                        		</div>
+                        		<Link to="/">
+	                        		<div className="tuideo" onClick={this.tuideo}>
+	                        			<img src="https://cdn.glitch.com/ba72007a-b60d-4faa-b311-0093a53c208c%2FReal%20Love.png?v=1592183906811" />
+	                        		</div>
+                        		</Link>
                         	</div>
                         	<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                        		<div className="sovo">
-                        			<img src="https://cdn.glitch.com/ba72007a-b60d-4faa-b311-0093a53c208c%2FReal%20Love%20(1)f.png?v=1592184465856" />
-                        		</div>
+                        		<Link to="/">
+	                        		<div className="sovo" onClick={this.phukien}>
+	                        			<img src="https://cdn.glitch.com/ba72007a-b60d-4faa-b311-0093a53c208c%2FReal%20Love%20(1)f.png?v=1592184465856" />
+	                        		</div>
+                        		</Link>
                         	</div>
                         	<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                        		<div className="ocean">
-                        			<img src="https://cdn.glitch.com/ba72007a-b60d-4faa-b311-0093a53c208c%2FReal%20Love%20(2)h.png?v=1592184987710" />
-                        		</div>
+                        		<Link to="/">
+	                        		<div className="ocean" onClick={this.dungcu}>
+	                        			<img src="https://cdn.glitch.com/ba72007a-b60d-4faa-b311-0093a53c208c%2FReal%20Love%20(2)h.png?v=1592184987710" />
+	                        		</div>
+                        		</Link>
                         	</div>
                         	<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                        		<div className="chanmeo">
-                        			<img src="https://cdn.glitch.com/ba72007a-b60d-4faa-b311-0093a53c208c%2FReal%20Love%20(3)gjh.png?v=1592185546831" />
-                        		</div>
+                        		<Link to="/">
+	                        		<div className="chanmeo" onClick={this.latvat}>
+	                        			<img src="https://cdn.glitch.com/ba72007a-b60d-4faa-b311-0093a53c208c%2FReal%20Love%20(3)gjh.png?v=1592185546831" />
+	                        		</div>
+                        		</Link>
                         	</div>
                         </div>
                         <div className="box_main">
 		                    {redirct === 200 ? showTable : <div className="loading" style={{marginTop:"0", padding:"40px"}}>Loading&#8230;</div>}
-		                </div>
-		                <div className="send_mail">
-		                    <button type="button">Xem Them</button>
 		                </div>
                     </div>
 				</div>

@@ -28,6 +28,10 @@ class RandomCart extends React.Component{
         })
     }
 
+    sendG=(id)=>{
+        window.location = `/product/${id}`
+    }
+
 
 	render(){
 		var {random1, random2, random3} = this.state;
@@ -42,40 +46,34 @@ class RandomCart extends React.Component{
                         
                        <div className="row custom_row">
                             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            <Link to={random1._id}>
-                                <div className="colection1" style={{background:"#fff"}} >
-                                    <img src={`https://glaze-playful-traffic.glitch.me/${random1.imgeFile} `} />
+                                <div className="colection1" style={{background:"#fff"}} onClick={()=> this.sendG(random1._id)}>
+                                    <img src={`https://planet-time-linseed.glitch.me/${random1.imgeFile} `} />
                                     <div className="title_product">
                                         <b>{random1.products}</b>
                                         <hr/>
                                         <span>${random1.price}</span>
                                     </div>
                                 </div>
-                            </Link>
                             </div>
                             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            <Link to={random2._id}>
-                                <div className="colection1" style={{background:"#fff"}} >
-                                <img src={`https://glaze-playful-traffic.glitch.me/${random2.imgeFile} `} />
+                                <div className="colection1" style={{background:"#fff"}} onClick={()=> this.sendG(random1._id)}>
+                                <img src={`https://planet-time-linseed.glitch.me/${random2.imgeFile} `} />
                                 <div className="title_product">
                                     <b>{random2.products}</b>
                                     <hr/>
                                     <span>${random2.price}</span>
                                 </div>
                                 </div>
-                            </Link>
                             </div>
                             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            <Link to={random3._id}>
-                                <div className="colection1" style={{background:"#fff"}} >
-                                <img src={`https://glaze-playful-traffic.glitch.me/${random3.imgeFile} `} />
+                                <div className="colection1" style={{background:"#fff"}} onClick={()=> this.sendG(random1._id)}>
+                                <img src={`https://planet-time-linseed.glitch.me/${random3.imgeFile} `} />
                                 <div className="title_product">
                                     <b>{random3.products}</b>
                                     <hr/>
                                     <span>${random3.price}</span>
                                 </div>
                                 </div>
-                            </Link>
                             </div>
                         </div>
                         

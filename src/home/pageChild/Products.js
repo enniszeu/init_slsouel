@@ -1,46 +1,28 @@
 import React from 'react';
 import callApi from './../../utils/apicaler';
+import { connect } from 'react-redux';
 import {
   Link
 } from "react-router-dom";
 
 class Products extends React.Component{
-    constructor(props){
-            super(props);
-            this.state = {
-                redirct:0,
-                products:[]         }
-    }
-
-    componentDidMount(){
-        {this.apiExpress()}
-    }
-
-    apiExpress = () =>{
-        callApi('', 'GET', null).then(res =>{
-            console.log(res.data)
-            this.setState({
-                redirct : res.status,
-                products : res.data
-            })
-        })
-    }
 
     render(){
-        const {products, redirct} = this.state
-        var showTable = products.map((product, index)=>{
+        console.log(this.props.products)
+        const {products} = this.props
+        var showTable = products.slice(0,6).map((product, index)=>{
             return ( 
                 <div className="col-xs-6 col-sm-4 col-md-4 col-lg-4" style={{paddingRight:"6px", paddingLeft: "6px"}} id={ product.price ? "" : "display_not"} key={index}>
                     <Link to={`product/${product._id}`}>
                         <div className="colection1" >
-                        <img src={ product.imgeFile ? `https://glaze-playful-traffic.glitch.me/${product.imgeFile}` : ""} />
+                        <img src={ product.imgeFile ? `https://planet-time-linseed.glitch.me/${product.imgeFile}` : ""} />
 
                         </div>
                         <div className="title_product">
-                            <p>NEW PRINTS</p>
+                            <p>NEW</p>
                             <b>{product.products}</b>
                             <hr/>
-                            <span>Gia {product.price}.000 Vnd</span>
+                            <span>Giá {product.price}.000 Vnd</span>
                         </div>
                     </Link>
                 </div>
@@ -50,22 +32,27 @@ class Products extends React.Component{
             <div className="row custom_row">
                 <div className="out_soure">
                     <div className="img_out" style={{background:"none", padding:"80px 400px", height:"300px"}}>
-                        <span class="t1">TAKE A LOOK</span>
-                        <h3>San Pham Moi</h3>
+                        <div className="deb"><span class="t1">TAKE A LOOK</span></div>
+                        <h3>Sản phẩm mới</h3>
                         <hr/>
                         <p>Latest news and researches from printing industry
                         </p>
                     </div>
                 </div>
                 <div className="box_main">
-                    {redirct === 200 ? showTable : <div className="loading" style={{marginTop:"0", padding:"40px"}}>Loading&#8230;</div>}
+                    {products ? showTable : <div className="loading" style={{marginTop:"0", padding:"40px"}}>Loading&#8230;</div>}
                 </div>
-                <div className="send_mail">
-                    <button type="button">Xem Them</button>
-                </div>
+                
             </div>
             
         )
     }
 }
-export default Products;
+
+const mapStateToProps = (state) =>{
+    return { 
+        products : state.products
+    }
+}
+
+export default connect(mapStateToProps, null)(Products);

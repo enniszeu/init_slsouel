@@ -51,7 +51,7 @@ class ViewProduct extends React.Component{
 
             callApi('manager', 'GET', null).then(res =>{
                 this.setState({
-                    productsPai : res.data.posts
+                    productsPai : res.data.views
                 })
             })
 
@@ -63,7 +63,7 @@ class ViewProduct extends React.Component{
 						products : res.data,
                         setImageMain : res.data.imgeFile,
                         setImageName : res.data.products
-					})
+					}) 
                   
                 })
             }
@@ -213,6 +213,8 @@ class ViewProduct extends React.Component{
     setImage1=(p)=>{
         this.setState({setImageMain: p})
     }
+
+
     
   
 
@@ -226,7 +228,7 @@ class ViewProduct extends React.Component{
                 <tbody>
                     <tr key={index}>
                     <td>
-                        <img src={`https://glaze-playful-traffic.glitch.me/${cart.imgeFile}`} />
+                        <img src={`https://planet-time-linseed.glitch.me/${cart.imgeFile}`} />
                     </td>
                     <td>x{cart.qty}</td>
                     <td>{cart.products}</td>
@@ -243,7 +245,7 @@ class ViewProduct extends React.Component{
                     {products.imgeFile1 === "" ? 
                         <div className="notImg"></div> :
                         <div className="img_views" onClick={()=> this.setImage1(products.imgeFile1)}>
-                            <img src={`https://glaze-playful-traffic.glitch.me/${products.imgeFile1}`} id={setImageMain === products.imgeFile1 ? "active" : ""}/>
+                            <img src={`https://planet-time-linseed.glitch.me/${products.imgeFile1}`} id={setImageMain === products.imgeFile1 ? "active" : ""}/>
                         </div>
                     }
                 </div>
@@ -291,7 +293,7 @@ class ViewProduct extends React.Component{
                                             </table>
                                             <div className="send_mails">
                                                 <Link to="/cart" ><button type="button" className="qty_button">ĐI ĐẾN GIỎ</button></Link>
-                                                <Link to="/" ><button className="qty_button" type="button" style={{background:"#3cd3dd",border: "1px solid #3cd3dd"}}>TIẾP TỤC MUA HÀNG</button></Link>
+                                                <button className="qty_button" type="button" onClick={this.props.history.goBack} style={{background:"#3cd3dd",border: "1px solid #3cd3dd"}}>TIẾP TỤC MUA HÀNG</button>
                                             </div>
 
                                         </div>
@@ -311,7 +313,7 @@ class ViewProduct extends React.Component{
                                     <div className="view-wapper">
                                         {redirct === 200 ? 
                                             <div className="img_view">
-                                                <img src={`https://glaze-playful-traffic.glitch.me/${setImageMain}`} />
+                                                <img src={`https://planet-time-linseed.glitch.me/${setImageMain}`} />
                                             </div>:
                                             <div className="img_view" style={{height:"430px", paddingTop:"50%"}}>
                                               <div className="loading" style={{marginTop:"0"}}>Loading&#8230;</div>
@@ -327,7 +329,7 @@ class ViewProduct extends React.Component{
                                             <b>NEW PRINTS</b>
                                             <h3>{products.products}</h3>
                                             <hr/>
-                                            <span>{`${products.price} VND`}</span>
+                                            <span>{`${products.price}.000 VND`}</span>
                                             <br/>
                                             <div className="qty_see">
                                                 <input type="text" onChange={this.onChangeQty} name="quantity" value={addQ - 1} className="input_text"/>

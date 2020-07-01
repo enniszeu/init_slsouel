@@ -97,8 +97,7 @@ class CartPage extends React.Component{
 	    	if(errUpload === ""){
 	    		this.setState({errPay:"Hãy cập nhật lại giỏ trước khi thanh toán", loader:""})
 	    	}else{
-	    		console.log("go")
-	    		this.setState({redirect:<Redirect to="/pay" />})
+	    		this.setState({redirect:<Redirect to="/CPSHang" />})
 	    	}
 	    }
     
@@ -110,7 +109,7 @@ class CartPage extends React.Component{
 
         var showCart = carts.map((cart, index)=>{
         	return (
-        		<div key={index}><img src={`https://glaze-playful-traffic.glitch.me/${cart.imgeFile} `}/>
+        		<div key={index}><img src={`https://planet-time-linseed.glitch.me/${cart.imgeFile} `}/>
         			
         			<span>
         				<div className="qty_see bobile_no">

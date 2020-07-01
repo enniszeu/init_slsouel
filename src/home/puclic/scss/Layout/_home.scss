@@ -1,5 +1,6 @@
 @import "variables";
 @import "mixin";
+@import url('https://fonts.googleapis.com/css2?family=Spirax&display=swap');
 
 .float_right{
 	float: right;
@@ -105,14 +106,14 @@ body{
 	background-image: none !important;
 }
 .img_c1{
-	background-image: url("../.././puclic/img/BG1.png");
+	background-image: url("https://cdn.glitch.com/ba72007a-b60d-4faa-b311-0093a53c208c%2FBG1.png?v=1592198916596");
 	@extend %bg_img;
 	&:after{
 	   @extend %after_
 	}
 }
 .img_c2{
-	background-image: url("../.././puclic/img/BG2.png");
+	background-image: url("https://cdn.glitch.com/ba72007a-b60d-4faa-b311-0093a53c208c%2FBG2.png?v=1592198952851");
 	@extend %bg_img;
 	&:after{
 	   @extend %after_
@@ -202,9 +203,19 @@ body{
 		position: absolute;
 		text-transform: none;
 		left: 2%;
-		top: 50%;
+		top: 54%;
 		transform: translateY(-50%);
 		transition: 0.5s;
+		a{
+			text-decoration: none;
+		}
+		img{
+			border-radius: 50px;
+		}
+		span{
+			font-family: 'Spirax', cursive;;
+			font-size: 26px;
+		}
 	}
 	.nav_{
 		display: flex;
@@ -269,7 +280,7 @@ body{
 	padding: 40px;
 
 	.table1_img_mypham{
-		background-image: url("../.././puclic/img/mypham.jpg");
+		background-image: url("https://cdn.glitch.com/ba72007a-b60d-4faa-b311-0093a53c208c%2Fmypham.jpg?v=1592199020797");
 		background-size: 100%;
 		width: 100%;
 		height: 550px;
@@ -305,7 +316,7 @@ body{
 		font-weight: 300;
 	}
 	.table2_img_thoitrang{
-		background-image: url("../.././puclic/img/thoitrang.jpg");
+		background-image: url("https://cdn.glitch.com/ba72007a-b60d-4faa-b311-0093a53c208c%2Flatvat.jpg?v=1592199067709");
 		background-size: 100%;
 		width: 100%;
 		height: 550px;
@@ -325,65 +336,12 @@ body{
 	// }
 }
 
-.table1{
-	padding: 40px;
-
-	.table1_img_phukien{
-		background-image: url("../.././puclic/img/phukien.jpg");
-		background-size: 100%;
-		width: 100%;
-		height: 550px;
-		position: relative;
-		transition: 0.5s;
-		opacity: 0.6;
-		&:hover{
-			opacity: 1;
-		}
-		h3{
-			position: absolute;
-			top: 40%;
-			left: 40%;
-			color: $white;
-			font-weight: 300;
-		}
-
-	}
-	// .overlow{
-	// 	@extend %overlow_;
-	//     &:hover{
-	//     	background-color: rgba(0,0,0, .0);
-	//     }
-	// }
-}
-.table2{
-	padding: 40px;
-	h3{
-		position: absolute;
-		top: 40%;
-		left: 40%;
-		color: $white;
-		font-weight: 300;
-	}
-	.table2_img_latvat{
-		background-image: url("../.././puclic/img/latvat.jpg");
-		background-size: 100%;
-		width: 100%;
-		height: 550px;
-		position: relative;
-		transition: 0.5s;
-		opacity: 0.6;
-		&:hover{
-			opacity: 1;
-		}
-
-	}
 		// .overlow{
 	// 	@extend %overlow_;
 	// 	&:hover{
 	//     	background-color: rgba(0,0,0, .0);
 	//     }
 	// }
-}
 
 .active{
 	padding: 0px 0px 60px 0px;
@@ -528,7 +486,10 @@ body{
  			display: block;
  		}
  		.logo_{
- 			left: 34%;
+ 			left: 40%;
+ 			span{
+ 				display: none;
+ 			}
  		}
  		.nav_{
  			display: none;

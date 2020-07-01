@@ -230,26 +230,26 @@ class CreatePage extends React.Component{
         e.preventDefault();
         var { products, price, species, describe,file} = this.state;
         
-        // if(!file){
-        //   this.setState({ERRimage:"ERRimage"})
-        //   return true;
-        // }
-        // if(!products){
-        //   this.setState({ERRproducts:"ERRproducts"})
-        //   return true;
-        // }
-        // if(!price){
-        //   this.setState({ERRprice:"ERRprice"})
-        //   return true;
-        // }
-        // if(!species){
-        //   this.setState({ERRspecies:"ERRspecies"})
-        //   return true;
-        // }
-        // if(!describe){
-        //   this.setState({ERRdescribe:"ERRdescribe"})
-        //   return true;
-        // }
+        if(!file){
+          this.setState({ERRimage:"ERRimage"})
+          return true;
+        }
+        if(!products){
+          this.setState({ERRproducts:"ERRproducts"})
+          return true;
+        }
+        if(!price){
+          this.setState({ERRprice:"ERRprice"})
+          return true;
+        }
+        if(!species){
+          this.setState({ERRspecies:"ERRspecies"})
+          return true;
+        }
+        if(!describe){
+          this.setState({ERRdescribe:"ERRdescribe"})
+          return true;
+        }
         this.setState({alertCustom : "alertCustom"})
         // {this.thenGetDownloadUrl()}
         {this.callApiFunc()}
@@ -391,6 +391,7 @@ class CreatePage extends React.Component{
                             <option defaultValue="3">Giai Trí</option>
                             <option defaultValue="3">Điện thoại</option>
                             <option defaultValue="3">Văn phòng phẩm</option>
+                            <option defaultValue="3">Túi</option>
 
                           </select>
                         </div>

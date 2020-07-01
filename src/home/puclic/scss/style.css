@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Spirax&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
 .float_right {
   float: right;
@@ -85,10 +86,10 @@ body {
   background-image: none !important; }
 
 .img_c1 {
-  background-image: url("../.././puclic/img/BG1.png"); }
+  background-image: url("https://cdn.glitch.com/ba72007a-b60d-4faa-b311-0093a53c208c%2FBG1.png?v=1592198916596"); }
 
 .img_c2 {
-  background-image: url("../.././puclic/img/BG2.png"); }
+  background-image: url("https://cdn.glitch.com/ba72007a-b60d-4faa-b311-0093a53c208c%2FBG2.png?v=1592198952851"); }
 
 .img_c3 {
   background-image: url("https://firebasestorage.googleapis.com/v0/b/slsouel.appspot.com/o/image%2Flookbook_hero_NEW.jpg?alt=media&token=0e85ef50-0f44-493c-ad09-68f269ee5a9a"); }
@@ -155,9 +156,16 @@ body {
     position: absolute;
     text-transform: none;
     left: 2%;
-    top: 50%;
+    top: 54%;
     transform: translateY(-50%);
     transition: 0.5s; }
+    .menu_bar .logo_ a {
+      text-decoration: none; }
+    .menu_bar .logo_ img {
+      border-radius: 50px; }
+    .menu_bar .logo_ span {
+      font-family: 'Spirax', cursive;
+      font-size: 26px; }
   .menu_bar .nav_ {
     display: flex;
     justify-content: center;
@@ -192,7 +200,7 @@ body {
 .table1 {
   padding: 40px; }
   .table1 .table1_img_mypham {
-    background-image: url("../.././puclic/img/mypham.jpg");
+    background-image: url("https://cdn.glitch.com/ba72007a-b60d-4faa-b311-0093a53c208c%2Fmypham.jpg?v=1592199020797");
     background-size: 100%;
     width: 100%;
     height: 550px;
@@ -217,7 +225,7 @@ body {
     color: #fff;
     font-weight: 300; }
   .table2 .table2_img_thoitrang {
-    background-image: url("../.././puclic/img/thoitrang.jpg");
+    background-image: url("https://cdn.glitch.com/ba72007a-b60d-4faa-b311-0093a53c208c%2Flatvat.jpg?v=1592199067709");
     background-size: 100%;
     width: 100%;
     height: 550px;
@@ -225,44 +233,6 @@ body {
     transition: 0.5s;
     opacity: 0.6; }
     .table2 .table2_img_thoitrang:hover {
-      opacity: 1; }
-
-.table1 {
-  padding: 40px; }
-  .table1 .table1_img_phukien {
-    background-image: url("../.././puclic/img/phukien.jpg");
-    background-size: 100%;
-    width: 100%;
-    height: 550px;
-    position: relative;
-    transition: 0.5s;
-    opacity: 0.6; }
-    .table1 .table1_img_phukien:hover {
-      opacity: 1; }
-    .table1 .table1_img_phukien h3 {
-      position: absolute;
-      top: 40%;
-      left: 40%;
-      color: #fff;
-      font-weight: 300; }
-
-.table2 {
-  padding: 40px; }
-  .table2 h3 {
-    position: absolute;
-    top: 40%;
-    left: 40%;
-    color: #fff;
-    font-weight: 300; }
-  .table2 .table2_img_latvat {
-    background-image: url("../.././puclic/img/latvat.jpg");
-    background-size: 100%;
-    width: 100%;
-    height: 550px;
-    position: relative;
-    transition: 0.5s;
-    opacity: 0.6; }
-    .table2 .table2_img_latvat:hover {
       opacity: 1; }
 
 .active {
@@ -329,7 +299,9 @@ body {
   .menu_bar .show_nav {
     display: block; }
   .menu_bar .logo_ {
-    left: 34%; }
+    left: 40%; }
+    .menu_bar .logo_ span {
+      display: none; }
   .menu_bar .nav_ {
     display: none; }
   .menu_bar .cart_ {
@@ -457,7 +429,6 @@ body {
     font-weight: 900;
     font-size: 13px;
     height: 38px;
-    display: block;
     color: #000;
     transition: .3s ease-in-out; }
   .title_product hr {
@@ -507,7 +478,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3); }
+  background-color: #3cd3dd; }
 
 /* :not(:required) hides these rules from IE9 and below */
 .loading:not(:required) {
@@ -594,14 +565,6 @@ body {
   height: 450px;
   padding: 137px 400px;
   text-align: center; }
-  .out_soure .img_out:after {
-    background-color: #3cd3dd;
-    border-radius: 50px 50px 50px 50px;
-    width: 12px;
-    height: 12px;
-    margin-top: 10px;
-    margin-left: 50px;
-    display: block; }
   .out_soure .img_out .t1 {
     color: #555555;
     font-size: 14px;

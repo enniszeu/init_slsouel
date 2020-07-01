@@ -6,6 +6,7 @@ import CreateBlog from './page/pageCreateBlog/CreateBlogPage';
 import AddChiTiet from './page/pageAddChiTiet/AddChiTietPage';
 import Cart from './page/pageCart/CartPage';
 import Pay from './page/pageCart/PayPage';
+import CPSHang from './page/pageCart/CPSHang';
 import PageHome from './home/PageHome';
 import ViewProduct from './home/pageView/ViewProduct';
 import Mypham from './home/pageMypham/Mypham';
@@ -111,6 +112,11 @@ const routes = [
 		path:"/pay",
 		exact:true,
 		main: () => <Pay />
+	},
+	{
+		path:"/CPSHang",
+		exact:true,
+		main: () => <CPSHang />
 	}
 ]
 
